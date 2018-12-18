@@ -26,19 +26,6 @@ return [
         // 的属性的值，如 $model->id
         'id',
 
-        'avatar' => [
-            // 数据表格里列的名称，默认会使用『列标识』
-            'title'  => '头像',
-
-            // 默认情况下会直接输出数据，你也可以使用 output 选项来定制输出内容
-            'output' => function ($avatar, $model) {
-                return empty($avatar) ? 'N/A' : '<img src="'.$avatar.'" width="40">';
-            },
-
-            // 是否允许排序
-            'sortable' => false,
-        ],
-
         'name' => [
             'title'    => '用户名',
             'sortable' => false,
@@ -47,8 +34,12 @@ return [
             },
         ],
 
-        'email' => [
-            'title' => '邮箱',
+        'phone' => [
+            'title' => '手机号',
+        ],
+
+        'company' => [
+            'title' => '公司名',
         ],
 
         'operation' => [
@@ -62,23 +53,29 @@ return [
         'name' => [
             'title' => '用户名',
         ],
-        'email' => [
-            'title' => '邮箱',
+        'phone' => [
+            'title' => '手机号',
         ],
-        'password' => [
-            'title' => '密码',
-
-            // 表单使用 input 类型 password
-            'type' => 'password',
+        'company' => [
+            'title' => '公司名',
         ],
-        'avatar' => [
-            'title' => '用户头像',
-
-            // 设置表单条目的类型，默认的 type 是 input
-            'type' => 'image',
-
-            // 图片上传必须设置图片存放路径
-            'location' => public_path() . '/uploads/images/avatars/',
+        'address' => [
+            'title' => '地址',
+        ],
+        'market' => [
+            'title' => '所属市场',
+        ],
+        'vip_account' => [
+            'title' => '诚信通账号',
+        ],
+        'vip_url' => [
+            'title' => '诚信通地址',
+        ],
+        'vip_belong' => [
+            'title' => '所属部门',
+        ],
+        'vip_type' => [
+            'title' => '会员类型',
         ],
         'roles' => [
             'title'      => '用户角色',
