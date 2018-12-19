@@ -60,10 +60,18 @@ class TopicsController extends Controller
         return view('topics.create_and_edit', compact('topic', 'categories'));
     }
 
-	public function update(TopicRequest $request, Topic $topic)
+	public function update(TopicRequest $request,ImageUploadHandler $uploader, Topic $topic)
 	{
 		$this->authorize('update', $topic);
-		$topic->update($request->all());
+        $data = $request->all();
+
+        if ($request->banner) {
+            $result = $uploader->save($request->banner, 'banners', $topic->id);
+            if ($result) {
+                $data['banner'] = $result['path'];
+            }
+        }
+		$topic->update($data);
 
 		return redirect()->to($topic->link())->with('success', '更新成功！');
 	}

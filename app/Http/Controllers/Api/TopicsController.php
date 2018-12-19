@@ -14,10 +14,49 @@ class TopicsController extends Controller
     {
         $query = $topic->query();
 
-        if ($categoryId = $request->category_id) {
-            $query->where('category_id', $categoryId);
+        $query->where('category_id', 4);
+        // 为了说明 N+1问题，不使用 scopeWithOrder
+        switch ($request->order) {
+            case 'recent':
+                $query->recent();
+                break;
+
+            default:
+                $query->recentReplied();
+                break;
         }
 
+        $topics = $query->paginate(20);
+
+        return $this->response->paginator($topics, new TopicTransformer());
+    }
+
+    public function service(Request $request, Topic $topic)
+    {
+        $query = $topic->query();
+
+        $query->where('category_id', 3);
+        // 为了说明 N+1问题，不使用 scopeWithOrder
+        switch ($request->order) {
+            case 'recent':
+                $query->recent();
+                break;
+
+            default:
+                $query->recentReplied();
+                break;
+        }
+
+        $topics = $query->paginate(20);
+
+        return $this->response->paginator($topics, new TopicTransformer());
+    }
+
+    public function article(Request $request, Topic $topic)
+    {
+        $query = $topic->query();
+
+        $query->where('category_id', 2);
         // 为了说明 N+1问题，不使用 scopeWithOrder
         switch ($request->order) {
             case 'recent':

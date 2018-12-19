@@ -17,5 +17,10 @@
         "laravel-mix": "^1.0",
         "lodash": "^4.17.4",
         "vue": "^2.1.10"
+    },
+    "dependencies": {
+        "wepy-eslint": "^1.5.4",
+        "wepy-plugin-imagemin": "^1.5.3",
+        "wepy-plugin-replace": "^1.5.10"
     }
 }

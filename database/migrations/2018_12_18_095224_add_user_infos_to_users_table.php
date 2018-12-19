@@ -19,10 +19,10 @@ class AddUserInfosToUsersTable extends Migration
             $table->string('market')->nullable()->after('address');
             $table->string('vip_account')->nullable();
             $table->string('vip_url')->nullable();
-            $table->date('vip_enddate')->nullable();
+            $table->string('vip_enddate')->nullable();
             $table->string('vip_belong')->nullable();
             $table->string('vip_type')->nullable();
-            $table->boolean('vip_bao')->nullable();
+            $table->string('vip_bao')->nullable();
         });
     }
 

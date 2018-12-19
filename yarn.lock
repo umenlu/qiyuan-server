@@ -2903,7 +2903,7 @@ imagemin-svgo@^5.2.0:
     is-svg "^2.0.0"
     svgo "^0.7.0"
 
-imagemin@^5.2.0:
+imagemin@^5.2.0, imagemin@^5.2.2:
   version "5.3.1"
   resolved "http://registry.npm.taobao.org/imagemin/download/imagemin-5.3.1.tgz#f19c2eee1e71ba6c6558c515f9fc96680189a6d4"
   dependencies:
@@ -6186,6 +6186,22 @@ websocket-driver@>=0.5.1:
 websocket-extensions@>=0.1.1:
   version "0.1.2"
   resolved "http://registry.npm.taobao.org/websocket-extensions/download/websocket-extensions-0.1.2.tgz#0e18781de629a18308ce1481650f67ffa2693a5d"
+
+wepy-eslint@^1.5.4:
+  version "1.5.4"
+  resolved "http://registry.npm.taobao.org/wepy-eslint/download/wepy-eslint-1.5.4.tgz#56a1315daf1f09334ad6a1e8237eb823b50f82b3"
+
+wepy-plugin-imagemin@^1.5.3:
+  version "1.5.3"
+  resolved "http://registry.npm.taobao.org/wepy-plugin-imagemin/download/wepy-plugin-imagemin-1.5.3.tgz#deca510d4c4ff98b5be3891926e885d82b7d9d1c"
+  dependencies:
+    imagemin "^5.2.2"
+    imagemin-mozjpeg "^6.0.0"
+    imagemin-pngquant "^5.0.0"
+
+wepy-plugin-replace@^1.5.10:
+  version "1.5.10"
+  resolved "http://registry.npm.taobao.org/wepy-plugin-replace/download/wepy-plugin-replace-1.5.10.tgz#91c032da8b3ce425dbe1d12968fb811b45576159"
 
 whet.extend@~0.9.9:
   version "0.9.9"

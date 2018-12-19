@@ -63,9 +63,15 @@ $api->version('v1', [
         // 游客可以访问的接口
         $api->get('categories', 'CategoriesController@index')
             ->name('api.categories.index');
-        // 话题列表
+        // 异业合作列表
         $api->get('topics', 'TopicsController@index')
             ->name('api.topics.index');
+        // 提供服务列表
+        $api->get('service', 'TopicsController@service')
+            ->name('api.topics.service');
+        // 提供资讯列表
+        $api->get('article', 'TopicsController@article')
+            ->name('api.topics.article');
         // 话题详情
         $api->get('topics/{topic}', 'TopicsController@show')
             ->name('api.topics.show');

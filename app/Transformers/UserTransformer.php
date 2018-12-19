@@ -14,7 +14,9 @@ class UserTransformer extends TransformerAbstract
         return [
             'id' => $user->id,
             'name' => $user->name,
+            'phone' => $user->phone,
             'email' => $user->email,
+            'company' => $user->company,
             'avatar' => $user->avatar,
             'introduction' => $user->introduction,
             'bound_phone' => $user->phone ? true : false,

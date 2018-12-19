@@ -21,16 +21,25 @@
                 @include('common.error')
 
                 @if($topic->id)
-                    <form action="{{ route('topics.update', $topic->id) }}" method="POST" accept-charset="UTF-8">
+                    <form action="{{ route('topics.update', $topic->id) }}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                         <input type="hidden" name="_method" value="PUT">
                 @else
-                    <form action="{{ route('topics.store') }}" method="POST" accept-charset="UTF-8">
+                    <form action="{{ route('topics.store') }}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                 @endif
 
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     <div class="form-group">
                         <input class="form-control" type="text" name="title" value="{{ old('title', $topic->title ) }}" placeholder="请填写标题" required/>
+                    </div>
+
+                    <div class="form-group">
+                        头图
+                        <input class="form-control" type="file" name="banner"/>
+                        @if($topic->banner)
+                            <br>
+                            <img class="thumbnail img-responsive" src="{{ $topic->banner }}" width="400" />
+                        @endif
                     </div>
 
                     <div class="form-group">

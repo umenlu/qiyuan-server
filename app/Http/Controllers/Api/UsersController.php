@@ -99,7 +99,7 @@ class UsersController extends Controller
     {
         $user = $this->user();
 
-        $attributes = $request->only(['name', 'email', 'introduction', 'registration_id']);
+        $attributes = $request->only(['name', 'company']);
 
         if ($request->avatar_image_id) {
             $image = Image::find($request->avatar_image_id);
