@@ -77,6 +77,7 @@ class UsersController extends Controller
         $user = User::create([
             'name' => $request->name,
             'phone' => $verifyData['phone'],
+            'company' => $request->company,
             'password' => bcrypt($request->password),
             'weapp_openid' => $data['openid'],
             'weixin_session_key' => $data['session_key'],

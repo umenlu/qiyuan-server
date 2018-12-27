@@ -15,6 +15,7 @@ class UserRequest extends FormRequest
             case 'POST':
                 return [
                     'name' => 'required|string|max:255',
+                    'company' => 'required|string|max:255',
                     'password' => 'required|string|min:6',
                     'verification_key' => 'required|string',
                     'verification_code' => 'required|string',
@@ -24,7 +25,8 @@ class UserRequest extends FormRequest
             case 'PATCH':
                 $userId = \Auth::guard('api')->id();
                 return [
-                    'name' => 'between:3,25|unique:users,name,' .$userId,
+                    'name' => 'between:2,25|unique:users,name,' .$userId,
+                    'company' => 'required|string|max:255',
                     'email' => 'email',
                     'introduction' => 'max:80',
                     'avatar_image_id' => 'exists:images,id,type,avatar,user_id,'.$userId,
@@ -46,7 +48,7 @@ class UserRequest extends FormRequest
         return [
             'name.unique' => '用户名已被占用，请重新填写',
             'name.regex' => '用户名只支持英文、数字、横杆和下划线。',
-            'name.between' => '用户名必须介于 3 - 25 个字符之间。',
+            'name.between' => '用户名必须介于 2 - 25 个字符之间。',
             'name.required' => '用户名不能为空。',
         ];
     }
