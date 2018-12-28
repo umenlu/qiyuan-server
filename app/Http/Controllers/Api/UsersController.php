@@ -98,9 +98,10 @@ class UsersController extends Controller
 
     public function update(UserRequest $request)
     {
+
         $user = $this->user();
 
-        $attributes = $request->only(['name', 'company']);
+        $attributes = $request->only(['name', 'company', 'address']);
 
         if ($request->avatar_image_id) {
             $image = Image::find($request->avatar_image_id);

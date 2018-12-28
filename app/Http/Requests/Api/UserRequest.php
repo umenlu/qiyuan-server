@@ -26,9 +26,9 @@ class UserRequest extends FormRequest
                 $userId = \Auth::guard('api')->id();
                 return [
                     'name' => 'between:2,25|unique:users,name,' .$userId,
-                    'company' => 'required|string|max:255',
-                    'email' => 'email',
+                    'company' => 'string|max:255',
                     'introduction' => 'max:80',
+                    'address' => 'string',
                     'avatar_image_id' => 'exists:images,id,type,avatar,user_id,'.$userId,
                 ];
                 break;
@@ -50,6 +50,8 @@ class UserRequest extends FormRequest
             'name.regex' => '用户名只支持英文、数字、横杆和下划线。',
             'name.between' => '用户名必须介于 2 - 25 个字符之间。',
             'name.required' => '用户名不能为空。',
+            'address.string' => '便于客服上门指导，地址不能为空',
+            'company.required' => '请按照营业执照名称填写',
         ];
     }
 }
