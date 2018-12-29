@@ -66,6 +66,18 @@ $api->version('v1', [
         // 异业合作列表
         $api->get('topics', 'TopicsController@index')
             ->name('api.topics.index');
+        // 根据id找列表
+        $api->get('list', 'TopicsController@list')
+            ->name('api.topics.list');
+        // 精选banner
+        $api->get('banner', 'TopicsController@banner')
+            ->name('api.topics.banner');
+        // 服务banner
+        $api->get('bannerservice', 'TopicsController@bannerservice')
+            ->name('api.topics.bannerservice');
+        // 文章banner
+        $api->get('bannerarticle', 'TopicsController@bannerarticle')
+            ->name('api.topics.bannerarticle');
         // 提供服务列表
         $api->get('service', 'TopicsController@service')
             ->name('api.topics.service');

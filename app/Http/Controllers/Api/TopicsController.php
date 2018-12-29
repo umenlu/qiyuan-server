@@ -14,7 +14,92 @@ class TopicsController extends Controller
     {
         $query = $topic->query();
 
-        $query->where('category_id', 4);
+        $query->whereIn('category_id', [1, 2, 3, 4]);
+        // 为了说明 N+1问题，不使用 scopeWithOrder
+        switch ($request->order) {
+            case 'recent':
+                $query->recent();
+                break;
+
+            default:
+                $query->recentReplied();
+                break;
+        }
+
+        $topics = $query->paginate(20);
+
+        return $this->response->paginator($topics, new TopicTransformer());
+    }
+    public function list(Request $request, Topic $topic)
+    {
+        $query = $topic->query();
+        if($category_id = $request->category_id){
+            $query->where('category_id', $category_id);
+        }else{
+            $query->whereIn('category_id', [1, 2, 3, 4]);
+        }
+        // 为了说明 N+1问题，不使用 scopeWithOrder
+        switch ($request->order) {
+            case 'recent':
+                $query->recent();
+                break;
+
+            default:
+                $query->recentReplied();
+                break;
+        }
+
+        $topics = $query->paginate(20);
+
+        return $this->response->paginator($topics, new TopicTransformer());
+    }
+
+    public function banner(Request $request, Topic $topic)
+    {
+        $query = $topic->query();
+
+        $query->where('category_id', 9);
+        // 为了说明 N+1问题，不使用 scopeWithOrder
+        switch ($request->order) {
+            case 'recent':
+                $query->recent();
+                break;
+
+            default:
+                $query->recentReplied();
+                break;
+        }
+
+        $topics = $query->paginate(20);
+
+        return $this->response->paginator($topics, new TopicTransformer());
+    }
+
+    public function bannerservice(Request $request, Topic $topic)
+    {
+        $query = $topic->query();
+
+        $query->where('category_id', 10);
+        // 为了说明 N+1问题，不使用 scopeWithOrder
+        switch ($request->order) {
+            case 'recent':
+                $query->recent();
+                break;
+
+            default:
+                $query->recentReplied();
+                break;
+        }
+
+        $topics = $query->paginate(20);
+
+        return $this->response->paginator($topics, new TopicTransformer());
+    }
+        public function bannerarticle(Request $request, Topic $topic)
+    {
+        $query = $topic->query();
+
+        $query->where('category_id', 11);
         // 为了说明 N+1问题，不使用 scopeWithOrder
         switch ($request->order) {
             case 'recent':
@@ -35,7 +120,7 @@ class TopicsController extends Controller
     {
         $query = $topic->query();
 
-        $query->where('category_id', 3);
+        $query->where('category_id', 8);
         // 为了说明 N+1问题，不使用 scopeWithOrder
         switch ($request->order) {
             case 'recent':
@@ -56,7 +141,7 @@ class TopicsController extends Controller
     {
         $query = $topic->query();
 
-        $query->where('category_id', 2);
+        $query->whereIn('category_id', [5, 6, 7]);
         // 为了说明 N+1问题，不使用 scopeWithOrder
         switch ($request->order) {
             case 'recent':

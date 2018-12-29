@@ -10,20 +10,48 @@ class SeedCategoriesData extends Migration
     {
         $categories = [
             [
-                'name'        => '分享',
-                'description' => '分享创造，分享发现',
+                'name'        => '酒店住宿',
+                'description' => '酒店住宿等',
             ],
             [
-                'name'        => '教程',
-                'description' => '开发技巧、推荐扩展包等',
+                'name'        => '特价影票',
+                'description' => '特价影票等',
             ],
             [
-                'name'        => '问答',
-                'description' => '请保持友善，互帮互助',
+                'name'        => '车票机票',
+                'description' => '车票机票等',
             ],
             [
-                'name'        => '公告',
-                'description' => '站点公告',
+                'name'        => '打车出行',
+                'description' => '打车出行等',
+            ],
+            [
+                'name'        => '行业趋势',
+                'description' => '行业趋势等',
+            ],
+            [
+                'name'        => '市场机遇',
+                'description' => '市场机遇等',
+            ],
+            [
+                'name'        => '商友案例',
+                'description' => '商友案等',
+            ],
+            [
+                'name'        => '本地服务',
+                'description' => '本地服务等',
+            ],
+            [
+                'name'        => '精选banner',
+                'description' => '本地服务等',
+            ],
+            [
+                'name'        => '服务banner',
+                'description' => '本地服务等',
+            ],
+            [
+                'name'        => '资讯banner',
+                'description' => '本地服务等',
             ],
         ];
 

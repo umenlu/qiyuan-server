@@ -16,6 +16,7 @@ class TopicRequest extends FormRequest
                 return [
                     'title' => 'required|string',
                     'body' => 'required|string',
+                    'banner' => 'string',
                     'category_id' => 'required|exists:categories,id',
                 ];
                 break;
