@@ -21,12 +21,9 @@ class VerificationCodesController extends Controller
             return $this->response->errorUnauthorized('验证码错误');
         }
         $phone = $captchaData['phone'];
-        if (!app()->environment('production')) {
-            $code = '123456';
-        } else {
-            // 生成4位随机数，左侧补0
-            $code = str_pad(random_int(1, 9999), 4, 0, STR_PAD_LEFT);
-        }
+        // 生成4位随机数，左侧补0
+        $code = str_pad(random_int(1, 9999), 4, 0, STR_PAD_LEFT);
+
         $key = 'verificationCode_'.str_random(15);
         $expiredAt = now()->addMinutes(10);
         // 缓存验证码 10分钟过期。
