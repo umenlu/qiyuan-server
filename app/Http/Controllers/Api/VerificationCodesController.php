@@ -21,7 +21,7 @@ class VerificationCodesController extends Controller
             return $this->response->errorUnauthorized('验证码错误');
         }
         $phone = $captchaData['phone'];
-        // 生成4位随机数，左侧补0
+        // 生成4位随机数，左侧补0 suibian
         $code = str_pad(random_int(1, 9999), 4, 0, STR_PAD_LEFT);
 
         $key = 'verificationCode_'.str_random(15);
