@@ -105,6 +105,9 @@ $api->version('v1', [
 
         // 需要 token 验证的接口
         $api->group(['middleware' => 'api.auth'], function($api) {
+            // 获取小程序码
+            $api->get('codes', 'CodesController@codes')
+                ->name('api.codes.codes');
             // 当前登录用户信息
             $api->get('user', 'UsersController@me')
                 ->name('api.user.show');
