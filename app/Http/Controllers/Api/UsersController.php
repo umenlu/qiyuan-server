@@ -122,7 +122,7 @@ class UsersController extends Controller
         // $user = $this->user();
         $app = \EasyWeChat::miniProgram();
         $response = $app->app_code->get('pages/main/index');
-            if ($response instanceof \EasyWeChat\Kernel\Http\StreamResponse) {
+        if ($response instanceof \EasyWeChat\Kernel\Http\StreamResponse) {
             $filename = $response->saveAs('/uploads/appCodes', 'appcode.png');
         }
 

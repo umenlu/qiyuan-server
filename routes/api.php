@@ -102,12 +102,13 @@ $api->version('v1', [
         // 活跃用户
         $api->get('actived/users', 'UsersController@activedIndex')
             ->name('api.actived.users.index');
+        // 获取小程序码
+            $api->get('codes', 'UsersController@codes')
+                ->name('api.user.codes');
 
         // 需要 token 验证的接口
         $api->group(['middleware' => 'api.auth'], function($api) {
-            // 获取小程序码
-            $api->get('codes', 'UsersController@codes')
-                ->name('api.user.codes');
+
             // 当前登录用户信息
             $api->get('user', 'UsersController@me')
                 ->name('api.user.show');
