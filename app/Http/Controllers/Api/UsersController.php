@@ -117,4 +117,14 @@ class UsersController extends Controller
     {
         return $this->response->collection($user->getActiveUsers(), new UserTransformer());
     }
+    public function codes()
+    {
+        // $user = $this->user();
+        $app = \EasyWeChat::miniProgram();
+        $response = $app->app_code->get('pages/main/index');
+            if ($response instanceof \EasyWeChat\Kernel\Http\StreamResponse) {
+            $filename = $response->saveAs('/uploads/appCodes', 'appcode.png');
+        }
+
+    }
 }
